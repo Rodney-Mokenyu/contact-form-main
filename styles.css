@@ -1,0 +1,207 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --green-200: hsl(148, 38%, 91%);
+    --green-600: hsl(169, 82%, 27%);
+    --red: hsl(0, 66%, 54%);
+    --white: hsl(0, 0%, 100%);
+    --grey-500: hsl(186, 15%, 59%);
+    --grey-900: hsl(187, 24%, 22%);
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Karla', sans-serif;
+    background-color:var(--grey-500);
+    padding: 1rem;
+}
+
+
+div:has(label) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    margin-bottom: 0.5rem;
+    
+}
+
+#consent-checkbox {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+form {
+    border: 1px solid var(--grey-500);
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    /*max-width: 600px;*/
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+    
+
+input:not([type="radio"]):not([type="checkbox"]),
+textarea {
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 0.5rem;
+  outline: none;
+}
+
+input[type="radio"]{
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid gray;
+  
+  
+}
+
+input:not([type="radio"]):not([type="checkbox"]):hover,
+textarea:hover {
+  border-color: var(--green-200);
+}
+
+input[type="radio"]:hover {
+  outline: 2px solid var(--green-600);
+}
+.form-check:hover {
+  background-color: var(--green-200);
+  border-color: var(--green-600);
+}
+
+/* Persist green background when radio inside is checked */
+.form-check:has(input:checked) {
+  background-color: var(--green-200);
+  border-color: var(--green-600);
+}
+
+.form-check-input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  position: relative;
+  transition: border-color 0.2s;
+}
+
+.form-check-input[type="radio"]:checked {
+  border-color: var(--green-600);
+}
+
+.form-check-input[type="radio"]:checked::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: var(--green-600);
+  border-radius: 50%;
+}
+
+/* The border box for radio options */
+.form-check {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--green-200);     /* Same as Bootstrap default input border */
+  border-radius: 4px;             /* Slightly rounded corners */
+  padding: 0.4rem 2rem;
+  align-items: center;
+  background-color: white;
+}
+
+/* Optional: consistent vertical alignment of labels */
+.form-check-label {
+  margin-bottom: 0;
+  margin-left: 0.25rem;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  accent-color: green;
+}
+
+
+span {
+    color: var(--green-200);
+}
+
+.form_submitted_message {
+  align-items: center;
+  justify-content: center;
+  background-color: var(--grey-900);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  margin: 0rem auto;
+  width: fit-content; /* or a fixed width if needed */
+}
+
+.confirm-message p {
+    color: var(--white);
+    font-size: .5rem;
+    
+}
+
+#submit-button {
+    background-color: var(--green-600);
+    color: var(--white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    
+}
+
+.error-message {
+    color: var(--red);
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+#Names {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  #Names {
+    flex-direction: row;
+  }
+
+  #Names div {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .radio-box {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+    .radio-box div {
+        flex: 1;
+        min-width: 0;
+        border: 1px solid var(--grey-500);
+    }
+  
+}
