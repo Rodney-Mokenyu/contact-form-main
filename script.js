@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // validate function for checkbox inputs
+  // Validate function for checkbox inputs
   function validateCheckbox(id) {
     const checkbox = document.getElementById(id);
     const errorElement = checkbox.nextElementSibling; // Gets the <p> after checkbox
@@ -44,32 +44,27 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // validate function for radio inputs
+  // Validate function for radio inputs
   function validateRadioGroup(name) {
-  // Select all radios with this name
-  const radios = document.querySelectorAll(`input[name="${name}"]`);
-  // Select the error message <p> inside the same radio-box div
-  const errorElement = radios[0].closest('.radio-box').querySelector('.error-message');
+    const radios = document.querySelectorAll(`input[name="${name}"]`);
+    const errorElement = radios[0].closest('.radio-box').querySelector('.error-message');
 
-  // Check if any radio is checked
-  const isChecked = Array.from(radios).some(radio => radio.checked);
+    const isChecked = Array.from(radios).some(radio => radio.checked);
 
-  if (!isChecked) {
-    // Show error
-    errorElement.classList.remove('d-none');
-    errorElement.classList.add('d-block');
-    return false;
-  } else {
-    // Hide error
-    errorElement.classList.add('d-none');
-    errorElement.classList.remove('d-block');
-    return true;
+    if (!isChecked) {
+      errorElement.classList.remove('d-none');
+      errorElement.classList.add('d-block');
+      return false;
+    } else {
+      errorElement.classList.add('d-none');
+      errorElement.classList.remove('d-block');
+      return true;
+    }
   }
-}
 
-
-  submitButton.addEventListener('click', function (event) {
+  form.addEventListener('submit', function (event) {
     event.preventDefault();
+
     const isFirstNameValid = validateInput('first-name');
     const isLastNameValid = validateInput('last-name');
     const isEmailValid = validateInput('email');
@@ -78,10 +73,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const isQuerySubmitted = validateRadioGroup('query-type');
 
     if (isFirstNameValid && isLastNameValid && isEmailValid && isMessageValid && isQuerySubmitted && isTermsAccepted) {
-      const msgSentNotifier = document.getElementsByClassName('form_submitted_message')[0];
+      const msgSentNotifier = document.querySelector('.form_submitted_message');
       if (msgSentNotifier) {
         msgSentNotifier.classList.remove('d-none');
         msgSentNotifier.classList.add('d-block');
+        form.reset();
+        setTimeout(() => {
+          msgSentNotifier.classList.remove('d-block');
+          msgSentNotifier.classList.add('d-none');
+        }, 3000);
       }
     }
   });
