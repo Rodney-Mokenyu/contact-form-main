@@ -58,20 +58,19 @@
         </div>
 
     <fieldset >
-      <legend>Query Type <span class="required">*</span></legend>
-      <div class="radio-box">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" id="general" name="query-type" value="general" required>
-        <label class="form-check-label" for="general">General Enquiry</label>
-      </div>
+      <legend id="query-type">Query Type <span class="required">*</span></legend>
+      <div class="radio-box" >
+        <div class="form-check" >
+          <input class="form-check-input" type="radio" id="general" name="query-type" value="general" required>
+          <label class="form-check-label" for="general">General Enquiry</label>
+        </div>
 
-      <div class="form-check">
-        <input class="form-check-input" type="radio" id="support" name="query-type" value="support" required>
-        <label class="form-check-label" for="support">Support Enquiry</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="support" name="query-type" value="support" required>
+          <label class="form-check-label" for="support">Support Enquiry</label>
+        </div>
+        <p class="error-message d-none">Please enter a query type</p>
       </div>
-      </div>
-
-      <p class="error-message d-none">Please enter a query type</p>
     </fieldset>
 
 
