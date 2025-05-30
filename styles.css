@@ -12,11 +12,21 @@
     --grey-900: hsl(187, 24%, 22%);
 }
 
-body {
+body,html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
     font-size: 16px;
     font-family: 'Karla', sans-serif;
     background-color:var(--grey-500);
     padding: 1rem;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 
